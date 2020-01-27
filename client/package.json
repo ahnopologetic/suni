@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^4.4.2"
+    "@types/styled-components": "^4.4.2",
+    "dts-gen": "^0.6.0",
+    "miragejs": "^0.1.33"
   }
 }

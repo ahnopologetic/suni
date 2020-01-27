@@ -3,6 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Server } from 'miragejs'
+
+new Server({
+    routes() {
+        this.namespace = "api"
+
+        this.get("/movies", () => {
+            return {
+                movies: [
+                    { id: 1, name: "Inception", year: 2010 },
+                    { id: 2, name: "Interstellar", year: 2014 },
+                    { id: 3, name: "Dunkirk", year: 2017 },
+                ],
+            }
+        });
+        this.post('/student', (schema: any, request: any) => {
+            const name = JSON.parse(request.requestBody).name;
+            console.log({ name });
+            return JSON.parse(request.requestBody) 
+        })
+    }
+})
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
